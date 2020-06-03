@@ -5,11 +5,14 @@ class Store:
         self.departments = self.init_departments(departments)
 
     def __str__(self):
+        # this will print out the name of the Store 
+        # as well as any departments that the Store has 
         output = f"{self.name}\n"
         for d in self.departments:
-            output += " id: " + str(d.id()) + ", name: " + d.name() + "\n"
+            output += " id: " + str(d.get_id()) + ", name: " + d.get_name() + "\n"
         return output 
 
+    # Take in a string of department names and returns a list of Department instances 
     def init_departments(self, departments):
         '''
         instances = []
@@ -38,11 +41,17 @@ departments = [
     "Fishing",
     "Food"]
 
-my_store = Store("General Store", departments)
+my_store = Store("General Store\n", departments)
 print(my_store)
-
 
 # add a way for a user to select departments
 selection = int(input("Select a department number: "))
 
-print(f"\nYou selected department number {selection}, {department[selection-1].get_name()}")
+# Change this so that we're accessing Departments from the "canonical" list
+# of Departments
+print(f"\nYou selected department number {selection}, {my_store.departments[selection-1].get_name()}\n")
+
+# There's no easy way to access some department "outside" of our Store class 
+# Let's add a more streamlined way to add Departments to our Store 
+# Let's add a methond on the Department class that will take in a list of Strings
+# representing Department names, and create the Department instances for us.
