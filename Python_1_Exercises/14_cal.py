@@ -35,19 +35,44 @@ import sys
 import calendar
 from datetime import datetime
 
-today = datetime.today()
-month = today.strftime("%m")
-day = today.strftime("%d")
-year = today.strftime("%y")
+# 14_cal.py [month] [year]
+
+args = sys.argv
+
+# Read the argument values
+
+# Check if they are valid
+
+# Default to current month/year
+month = datetime.now().month
+year = datetime.now().year
+month = input("input month: ")
+year = input("input year: ")
 month = int(month)
 year = int(year)
 
-print(month, day, year)
+# 1 arg should set the month
+if len(args) == 1:
+  pass
+elif len(args) == 2:
+  month = int(args[1])
+  # print error message if not 1-12
+# 2 args should give the month and year
+elif len(args) == 3:
+  month = int(args[1])
+  year = int(args[2])
+# Otherwise, print error and usage message
+else:
+  print("ERROR: Should be in format '14_cal.py [month] [year]'")
+  exit(0)
 
-def cal():
-  month = input("Enter start month: (Ex. July = 7)")
-  year = input("Enter the year: ")
-  print(calendar.month(int(year), int(month)))
-    
+if month < 1 or month > 12:
+  print("ERROR: Invalid month")
+  exit(0)
 
-cal()
+
+tc = calendar.TextCalendar()
+
+# Print calendar for given month and year
+# print("CALENDAR: {month} - {year}")
+tc.prmonth(year, month)
