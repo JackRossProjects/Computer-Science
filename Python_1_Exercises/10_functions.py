@@ -10,6 +10,6 @@ num = int(num)
 # Print out "Even!" if the number is even. Otherwise print "Odd"
 
 if is_even(num) == True:
-    print('Even!')
+    print('The number ' + str(num) + ' is an even number!')
 else:
-    print('Odd')
+    print('The number ' + str(num) + ' is an odd number!')
