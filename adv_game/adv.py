@@ -70,6 +70,8 @@ while True:
         # check to see if we can go in that direction 
         # if we can, go there 
         player.try_direction(command)
+    else:
+        print("Invalid command")
     #
     # If the user enters a cardinal direction, attempt to move to the room there.
     # Print an error message if the movement isn't allowed.
