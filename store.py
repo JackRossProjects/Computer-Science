@@ -54,4 +54,4 @@ print(f"\nYou selected department number {selection}, {my_store.departments[sele
 # There's no easy way to access some department "outside" of our Store class 
 # Let's add a more streamlined way to add Departments to our Store 
 # Let's add a methond on the Department class that will take in a list of Strings
-# representing Department names, and create the Department instances for us.
+# representing Department names, and create the Department instances for us
