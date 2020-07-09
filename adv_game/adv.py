@@ -18,7 +18,14 @@ to north. The smell of gold permeates the air."""),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only things in here are a button in the north and a lever to the west.
+The only exit you can see is to the south."""),
+
+    'secret':    Room("Secret Room", """You found the secret chamber containing the 
+treasure! I guess the first treasure room was a decoy! Escape with the treasure!"""),
+
+    'trapdoor':  Room("Trap Door", """You've fallen into a trap door! Looks like it leads back outside to the south."""),
+                
 }
 
 # Link rooms together
@@ -31,6 +38,10 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+room['treasure'].n_to = room['secret']
+room['secret'].s_to = room['treasure']
+room['treasure'].w_to = room['trapdoor']
+room['trapdoor'].s_to = room['outside']
 
 #
 # Main
